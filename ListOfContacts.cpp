@@ -88,19 +88,73 @@ ostream& operator<<(ostream& str, const ListOfContacts& myList)
 }
 
 
-bool ListOfContacts::insertBack(string, int)
+bool ListOfContacts::insertBack(string s, int n)
 {
+	NodeOfContacts *newNode = new NodeOfContacts;
+	NodeOfContacts* nodePtr = head;
 
+	newNode->next = nullptr;
+	newNode->theContact.name = s;
+	newNode->theContact.number = n;
+
+	if (head != nullptr)
+	{
+		while (nodePtr->next != nullptr)
+		{
+			nodePtr = nodePtr->next;
+		}
+		nodePtr->next = newNode;
+	}
+	else
+	{
+		head = newNode;
+	}
 }
 
 bool ListOfContacts::deleteBack()
 {
+	NodeOfContacts* temp = new NodeOfContacts;
+	NodeOfContacts* nodePtr = nullptr;
 
+	if (head != nullptr)
+	{
+		while (nodePtr->next != nullptr)
+		{
+			nodePtr = nodePtr->next;
+			temp = nodePtr;
+		}
+
+		delete temp;
+
+		cout << temp->theContact << " has been deleted!" << endl;
+	}
+	else
+	{
+		delete head;
+
+		cout << head->theContact << " has been deleted!" << endl;
+	}
+
+	return true;
 }
 
 Contacts ListOfContacts::deleteContact(string nameToDelete)
 {
+	NodeOfContacts* delPtr = nullptr;
+	NodeOfContacts* temp = head;
+	NodeOfContacts* nodePtr = head;
 
+
+	while (nodePtr != nullptr && nodePtr->theContact.name != nameToDelete)
+	{
+		temp = nodePtr;
+	}
+
+	{
+		nodePtr = nodePtr->next;
+		temp = nodePtr;
+	}
+	
 }
 
 bool ListOfContacts::findContact(string nameToFind)

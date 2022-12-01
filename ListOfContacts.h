@@ -13,7 +13,7 @@ public:
 
 	bool insertFront(Contacts);
 	void displayList();
-	/*ostream& operator<<(ostream& str, const Contacts& myContact);*/
+	
 	Contacts deleteFront();
 
 	~ListOfContacts();

@@ -11,5 +11,7 @@ NodeOfContacts::NodeOfContacts()
 
 NodeOfContacts::NodeOfContacts(string n, int num)
 {
-
+	
+	theContact.name = n;
+	theContact.number = num;
 }
